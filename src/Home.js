@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import BlogList from './Bloglist';
 
 const Home = () => {
@@ -13,6 +13,9 @@ const Home = () => {
     setBlogs(newBlogs);
  }
 
+useEffect (() => {
+     console.log(blogs);
+ });
     return ( 
         <div className="Home">
             <BlogList blogs = { blogs } title = "All Blogs List !" handleDelete = {handleDelete}/>
