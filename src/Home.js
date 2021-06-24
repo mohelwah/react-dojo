@@ -8,10 +8,15 @@ const Home = () => {
     {title: 'make adynamic list', body: 'Lorem ipsum ', author: 'mohamed', id: 3}
  ]);
 
+ const handleDelete = (id) => {
+    const newBlogs = blogs.filter (blog => blog.id !== id );
+    setBlogs(newBlogs);
+ }
+
     return ( 
         <div className="Home">
-            <BlogList blogs = { blogs } title = "All Blogs List !"/>
-            <BlogList blogs = { blogs.filter( (blog) => blog.author === 'mohamed' ) } title = "Mohamed Blogs List !"/>
+            <BlogList blogs = { blogs } title = "All Blogs List !" handleDelete = {handleDelete}/>
+            <BlogList blogs = { blogs.filter( (blog) => blog.author === 'mohamed' ) }   handleDelete = {handleDelete} title = "Mohamed Blogs List !" />
         </div>
      );
 }
